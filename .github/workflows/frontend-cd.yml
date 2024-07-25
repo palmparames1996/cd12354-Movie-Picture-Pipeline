@@ -2,7 +2,7 @@ name: Frontend Continuous Deployment
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -93,7 +93,7 @@ jobs:
 
     - name: Configure Kubeconfig
       run:
-       aws eks update-kubeconfig --name udacity-project4 --region us-east-1
+       aws eks update-kubeconfig --name cluster --region us-east-1
 
 
     - name: Deploy Docker Image to Amazon EKS
